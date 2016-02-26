@@ -3,23 +3,18 @@ package base;
 public class MyInteger {
 	
 	// Declaring iValue
-	int iValue;
+	static int iValue;
 
 	// Constructor
 	public MyInteger(int value) {
 		iValue = value;
 	}
-
-	// Create setter
-	public void set_iValue(int value) {
-		iValue = value;
-	}
 	
 	// Create getter
-		public int get_iValue() {
-			return iValue;
-		}
-
+	public int get_iValue() {
+		return iValue;
+	}
+	
 	// iValue Methods
 	public boolean isEven() {
 		if (iValue % 2 == 0) {
@@ -38,8 +33,8 @@ public class MyInteger {
 	}
 
 	public boolean isPrime() {
-		for (int i = 2; i < iValue; i++) {
-			if (iValue % 1 == 0) {
+		for (int i = 2; i <= iValue/2; i++) {
+			if (iValue % i == 0) {
 				return false;
 			}
 		}
@@ -59,14 +54,15 @@ public class MyInteger {
 	public static boolean isOdd(int x) {
 		if (x % 2 != 0) {
 			return true;
-		} else {
+			} 
+		else {
 			return false;
 		}
 	}
 
 	public static boolean isPrime(int x) {
-		for (int i = 2; i < x; i++) {
-			if (x % 1 == 0) {
+		for (int i = 2; i <= x/2; i++) {
+			if (x % i == 0) {
 				return false;
 			}
 		}
@@ -89,7 +85,7 @@ public class MyInteger {
 	
 	//Equals methods
 	
-	public boolean equals(int x){
+	public static boolean equals(int x){
 		if(x == iValue){
 			return true;
 		}
@@ -97,7 +93,12 @@ public class MyInteger {
 			return false;
 		}
 	}
-	public boolean equals(MyInteger x){
-		return x.equals(iValue);
+	public static boolean equals(MyInteger x){
+		if (iValue == x.get_iValue()){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }
